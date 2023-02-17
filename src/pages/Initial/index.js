@@ -5,9 +5,11 @@ import thunkMiddleware from 'redux-thunk';
 import withAuthorities from 'decorators/withAuthorities';
 import Initial from './containers/Initial';
 import reducer from './reducers/reducer';
+import customers from "../Customers/reducers/customersReducer";
 
 const rootReducer = combineReducers({
   reducer,
+  customers,
 });
 const store = createStore(
   rootReducer,

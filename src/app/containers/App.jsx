@@ -14,6 +14,7 @@ import * as PAGES from 'constants/pages';
 import {
   fetchUser,
 } from '../actions/user';
+import PageCustomers from "../../pageProviders/Customers";
 
 const App = () => {
   const [state, setState] = useState({
@@ -40,6 +41,9 @@ const App = () => {
               </Route>
               <Route path={`/${PAGES.INITIAL}`}>
                 <PageInitial />
+              </Route>
+              <Route path={`/${PAGES.CUSTOMERS}`}>
+                <PageCustomers />
               </Route>
               <Redirect from="*" to={`/${PAGES.INITIAL}`} />
             </Switch>
