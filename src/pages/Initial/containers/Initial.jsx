@@ -26,6 +26,20 @@ const Initial = ({
 
   return (
     <div className={classes.container}>
+      <div>
+        <Typography variant="body1">
+          <Link
+              href="/customers"
+              style={{
+                fontFamily: 'Montserrat'
+              }}
+          >
+            <b>
+              Customers list
+            </b>
+          </Link>
+        </Typography>
+      </div>
       {canSeeList && availableItems.map((item, index) => (
         <Link
           href={index % 2 === 0
