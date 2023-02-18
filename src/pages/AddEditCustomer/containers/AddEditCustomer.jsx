@@ -97,6 +97,15 @@ function AddEditCustomer() {
           >
             SAVE
           </Button>
+          <Button
+              variant="contained"
+              color="primary"
+              onClick={() =>
+                  history.push(`/${PAGES.CUSTOMERS}`)
+              }
+          >
+            CANCEL
+          </Button>
         </div>
       </form>
     </div>
