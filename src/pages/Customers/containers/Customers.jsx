@@ -16,6 +16,18 @@ function Customers() {
 
   return (
       <div>
+        <Button
+            variant="contained"
+            onClick={() =>
+                history.push(`/${PAGES.ADD_EDIT_CUSTOMER}`)
+            }
+            style={{
+              margin: 10,
+            }}
+        >
+          Add new customer
+        </Button>
+        <hr/>
         {customers.isLoading &&
             (
                 <div>Loading...</div>
@@ -25,15 +37,6 @@ function Customers() {
             customers={customers.list}
             dispatch={dispatch}
         />
-        <hr/>
-        <Button
-          variant="contained"
-          onClick={() =>
-              history.push(`/${PAGES.ADD_EDIT_CUSTOMER}`)
-          }
-        >
-          Add new customer
-        </Button>
       </div>
   );
 }
