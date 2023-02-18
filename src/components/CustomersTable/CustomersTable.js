@@ -12,6 +12,8 @@ import {
 } from "@material-ui/core";
 import config from "config/configExample";
 import customersActions from "../../pages/Customers/actions/customersActions";
+import {useHistory} from "react-router-dom";
+import * as PAGES from "../../constants/pages";
 
 const useStyles = makeStyles({
   table: {
@@ -25,6 +27,7 @@ const CustomersTable = (props) => {
     customers,
     dispatch,
   } = props;
+  const history = useHistory();
 
   const deleteCustomer = (elem) => {
     const id = elem.currentTarget.id;
@@ -32,9 +35,21 @@ const CustomersTable = (props) => {
         .then(() => dispatch(customersActions.fetchCustomers()));
   };
 
+  const handleRedirect = (elem) => {
+    const id = elem.currentTarget.id;
+    history.push(`/${PAGES.ADD_EDIT_CUSTOMER}/${id}`);
+
+    // history.push(`/${PAGES.ADD_EDIT_CUSTOMER}`, { // for impl with useLocation()
+    //   id: id,
+    // });
+  };
+
   return (
       <TableContainer component={Paper}>
-        <Table className={classes.table} size="small" aria-label="a dense table">
+        <Table
+            className={classes.table}
+            size="small"
+            aria-label="a dense table">
           <TableHead>
             <TableRow>
               <TableCell align="right">ID</TableCell>
@@ -62,7 +77,8 @@ const CustomersTable = (props) => {
                   <TableCell align="right">
                     <Button
                         variant="contained"
-                        onClick={() => {}}
+                        id={customer.id}
+                        onClick={handleRedirect}
                     >
                       Change
                     </Button>

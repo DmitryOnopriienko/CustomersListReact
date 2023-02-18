@@ -15,6 +15,7 @@ import {
   fetchUser,
 } from '../actions/user';
 import PageCustomers from "../../pageProviders/Customers";
+import PageAddEditCustomer from "../../pageProviders/AddEditCustomer";
 
 const App = () => {
   const [state, setState] = useState({
@@ -44,6 +45,12 @@ const App = () => {
               </Route>
               <Route path={`/${PAGES.CUSTOMERS}`}>
                 <PageCustomers />
+              </Route>
+              <Route path={`/${PAGES.ADD_EDIT_CUSTOMER}/:id`}>
+                <PageAddEditCustomer />
+              </Route>
+              <Route path={`/${PAGES.ADD_EDIT_CUSTOMER}`}>
+                <PageAddEditCustomer />
               </Route>
               <Redirect from="*" to={`/${PAGES.INITIAL}`} />
             </Switch>
